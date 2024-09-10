@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login page</title>
+    <title>Login Page</title>
 </head>
 <body>
-<form>
+<form id="loginForm">
     <label for="pswd">Enter your password: </label>
     <input type="password" id="pswd">
     <input type="button" value="Submit" onclick="checkPswd();" />
 </form>
-<!--Function to check password the already set password is admin-->
 <script type="text/javascript">
     function checkPswd() {
         var confirmPassword = "admin";
         var password = document.getElementById("pswd").value;
-        if (password == confirmPassword) {
-             window.location="welcome.html";
-        }
-        else{
+        if (password === confirmPassword) {
+            window.location.href = "welcome.html"; // Use href to properly navigate
+        } else {
             alert("Passwords do not match.");
         }
+        return false; // Prevent form submission or page reload
     }
 </script>
 </body>
