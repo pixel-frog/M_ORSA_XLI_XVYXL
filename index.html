@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Login</title>
+    <script>
+        function validatePassword() {
+            // Define the correct password
+            var correctPassword = "password123";
+            
+            // Get the value entered by the user
+            var enteredPassword = document.getElementById("password").value;
+            
+            // Check if the entered password matches the correct password
+            if (enteredPassword === correctPassword) {
+                // Redirect to welcome.html
+                window.location.href = "welcome.html";
+            } else {
+                // Display an alert if the password is incorrect
+                alert("Incorrect password. Please try again.");
+            }
+            
+            // Prevent form submission
+            return false;
+        }
+    </script>
 </head>
 <body>
-<form>
-    <label for="pswd">Enter your password: </label>
-    <input type="password" id="pswd">
-    <input type="button" value="Submit" onclick="checkPswd();" />
-</form>
-<!--Function to check password the already set password is admin-->
-<script type="text/javascript">
-    function checkPswd() {
-        var confirmPassword = "admin";
-        var password = document.getElementById("pswd").value;
-        if (password == confirmPassword) {
-            alert("Passwords do match.") 
-        }
-        else{
-            alert("Passwords do not match.");
-        }
-    }
-</script>
+    <h1>Login</h1>
+    <form onsubmit="return validatePassword()">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
